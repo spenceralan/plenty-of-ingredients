@@ -22,7 +22,7 @@ CookBook.prototype.matches = function(ingredients) {
     let recipeIngredients = this.recipes[i].ingredients;
     //Return all recipes that match ingredients
     ingredients.forEach(function(ingredient){
-      if (recipeIngredients.includes(ingredient)){
+      if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
         matchedRecipes.push(recipe);
       }
     });
