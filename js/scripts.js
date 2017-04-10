@@ -6,6 +6,11 @@ function Recipe (title, image, link, ingredients, restrictions) {
   this.dietaryRestrictions = restrictions; // GF, DF, VEG
 }
 
+function User(ingredients, dietaryRestrictions){
+  this.ingredients = ingredients;
+  this.dietaryRestrictions = dietaryRestrictions;
+}
+
 Recipe.prototype.matches = function () {
 
 }
