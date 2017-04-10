@@ -29,8 +29,8 @@ CookBook.prototype.matches = function(ingredients) {
     let recipeIngredients = this.recipes[i].ingredients;
     //Return all recipes that match ingredients
     ingredients.forEach(function(ingredient){
-      if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
-        matchedRecipes.push(recipe);
+      if (recipeIngredients.includes(ingredient)){
+        matchedRecipes.push([recipe, ingredient]);
       }
     });
   }
@@ -38,11 +38,6 @@ CookBook.prototype.matches = function(ingredients) {
 };
 
 let masterCookBook = new CookBook();
-
-// returnedRecipes = {
-//   chickenPotPie: ["carrot", "chicken"];
-//   tikkaMasa: ["chicken"];
-// }
 
 const chickenPotPie = new Recipe (
   "Chicken Pot Pie",
