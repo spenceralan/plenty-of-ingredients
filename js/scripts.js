@@ -194,16 +194,26 @@ allRecipes.forEach(function(recipe) {
 
 $(function(){
   var newUser = new User();
-  $("input:checkbox[name=ingredients]").click(function() {
-    $("input:checkbox[name=ingredients]:checked").last().each(function(){
-        var userIngredients = $(this).val();
-        newUser.ingredients.push(userIngredients);
-    });
+
+  $('input[name="ingredients"]').on('click', function () {
+    if ($(this).is(':checked')) {
+      newUser.ingredients.push($(this).val());
+    } else {
+      if ((index =  newUser.ingredients.indexOf($(this).val())) !== -1) {
+        newUser.ingredients.splice(index, 1);
+      }
+    }
   });
-  $("input:checkbox[name=Dietary-Restrictions]").click(function(){
-    $("input:checkbox[name=Dietary-Restrictions]:checked").last().each(function(){
-        var userRestrictions = $(this).val();
-        newUser.dietaryRestrictions.push(userRestrictions);
-    });
+
+  $('input[name="Dietary-Restrictions"]').on('click', function () {
+    if ($(this).is(':checked')) {
+      newUser.dietaryRestrictions.push($(this).val());
+    } else {
+      if ((index =  newUser.dietaryRestrictions.indexOf($(this).val())) !== -1) {
+        newUser.dietaryRestrictions.splice(index, 1);
+      }
+    }
   });
+
+
 });//ends doc ready
