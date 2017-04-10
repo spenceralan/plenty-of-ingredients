@@ -1,9 +1,16 @@
+// *************Business Logic **********
+
 function Recipe (title, image, link, ingredients, restrictions) {
   this.title = title;
   this.image = image;
   this.link = link;
   this.ingredients = ingredients;
   this.dietaryRestrictions = restrictions; // GF, DF, VEG
+}
+
+function User() {
+  this.ingredients = [];
+  this.dietaryRestrictions = [];
 }
 
 function CookBook () {
@@ -17,7 +24,7 @@ CookBook.prototype.addRecipe = function(recipe) {
 //Takes an array of ingrients and returns all recipes that the userInput ingredients match
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
-  for (let i=0; i<this.recipes.length; i++){
+  for (let i=0; i<this.recipes.length; i++) {
     let recipe = this.recipes[i];
     let recipeIngredients = this.recipes[i].ingredients;
     //Return all recipes that match ingredients
@@ -187,3 +194,21 @@ let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofu
 allRecipes.forEach(function(recipe) {
   masterCookBook.addRecipe(recipe);
 });
+
+// *************User Logic **********
+
+$(function(){
+  var newUser = new User();
+  $("input:checkbox[name=ingredients]").click(function() {
+    $("input:checkbox[name=ingredients]:checked").last().each(function(){
+        var userIngredients = $(this).val();
+        newUser.ingredients.push(userIngredients);
+    });
+  });
+  $("input:checkbox[name=Dietary-Restrictions]").click(function(){
+    $("input:checkbox[name=Dietary-Restrictions]:checked").last().each(function(){
+        var userRestrictions = $(this).val();
+        newUser.dietaryRestrictions.push(userRestrictions);
+    });
+  });
+});//ends doc ready
