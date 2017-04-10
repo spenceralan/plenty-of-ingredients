@@ -1,3 +1,5 @@
+// *************Business Logic **********
+
 function Recipe (title, image, link, ingredients, restrictions) {
   this.title = title;
   this.image = image;
@@ -6,6 +8,12 @@ function Recipe (title, image, link, ingredients, restrictions) {
   this.dietaryRestrictions = restrictions; // GF, DF, VEG
 }
 
+function User(){
+  this.ingredients = [];
+  this.dietaryRestrictions = [];
+}
+
+Recipe.prototype.matches = function () {
 function CookBook () {
   this.recipes = [];
 }
@@ -182,3 +190,21 @@ let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofu
 allRecipes.forEach(function(recipe) {
   masterCookBook.addRecipe(recipe);
 });
+
+// *************User Logic **********
+
+$(function(){
+  var newUser = new User();
+  $("input:checkbox[name=ingredients]").click(function() {
+    $("input:checkbox[name=ingredients]:checked").last().each(function(){
+        var userIngredients = $(this).val();
+        newUser.ingredients.push(userIngredients);
+    });
+  });
+  $("input:checkbox[name=Dietary-Restrictions]").click(function(){
+    $("input:checkbox[name=Dietary-Restrictions]:checked").last().each(function(){
+        var userRestrictions = $(this).val();
+        newUser.dietaryRestrictions.push(userRestrictions);
+    });
+  });
+});//ends doc ready
