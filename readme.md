@@ -32,7 +32,7 @@ Installation is quick and easy! Either open this link https://spenceralan.github
 |----------|:--------:|:--------:|
 | Create object for each recipe | Chicken Pot Pie, Image, Link, [Ingredients], Dietary Restrictions | chicken_pot_pie {title: "Chicken Pot Pie", image: image, link: "http...", ingredients: [chicken, carrots, peas,...], dietaryRestriction: "None"}; |
 | Create object for user to store ingredients | new User clicks chicken, carrots, and peas | user {ingredients: [chicken, carrots, peas]}  |
-| Build recipes object constructor | Constructor takes an array of ingredients | matches method returns recipes that match the ingredients from the input array |
+| Build Cookbook object constructor | Constructor takes an array of ingredients | matches method returns recipes that match the ingredients from the input array |
 | Create new recipes instance that takes the ingredients from the user object and returns matching recipes | [chicken, carrots, peas,...] | recipes: [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan]} |
 | User clicks on a single checkbox ingredient | chicken | user {ingredients: [chicken]} |
 | Pass user ingredients to matches recipe method | recipes.matches([chicken]) | [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan] |

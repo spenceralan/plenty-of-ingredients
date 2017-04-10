@@ -14,8 +14,31 @@ function User(){
 }
 
 Recipe.prototype.matches = function () {
-
+function CookBook () {
+  this.recipes = [];
 }
+
+CookBook.prototype.addRecipe = function(recipe) {
+  this.recipes.push(recipe);
+}
+
+//Takes an array of ingrients and returns all recipes that the userInput ingredients match
+CookBook.prototype.matches = function(ingredients) {
+  let matchedRecipes = [];
+  for (let i=0; i<this.recipes.length; i++){
+    let recipe = this.recipes[i];
+    let recipeIngredients = this.recipes[i].ingredients;
+    //Return all recipes that match ingredients
+    ingredients.forEach(function(ingredient){
+      if (recipeIngredients.includes(ingredient)){
+        matchedRecipes.push(recipe);
+      }
+    });
+  }
+  return matchedRecipes;
+};
+
+let masterCookBook = new CookBook();
 
 const chickenPotPie = new Recipe (
   "Chicken Pot Pie",
@@ -161,6 +184,12 @@ const loadedPotato = new Recipe (
   ["VEG", "GF"]
 );
 
+//Array of all recipes
+let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato];
+
+allRecipes.forEach(function(recipe) {
+  masterCookBook.addRecipe(recipe);
+});
 
 // *************User Logic **********
 
