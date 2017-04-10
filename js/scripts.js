@@ -32,6 +32,11 @@ CookBook.prototype.matches = function(ingredients) {
 
 let masterCookBook = new CookBook();
 
+// returnedRecipes = {
+//   chickenPotPie: ["carrot", "chicken"];
+//   tikkaMasa: ["chicken"];
+// }
+
 const chickenPotPie = new Recipe (
   "Chicken Pot Pie",
   "..img/chickenPotPie.jpg",
