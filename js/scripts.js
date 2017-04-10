@@ -6,9 +6,31 @@ function Recipe (title, image, link, ingredients, restrictions) {
   this.dietaryRestrictions = restrictions; // GF, DF, VEG
 }
 
-Recipe.prototype.matches = function () {
-
+function CookBook () {
+  this.recipes = [];
 }
+
+CookBook.prototype.addRecipe = function(recipe) {
+  this.recipes.push(recipe);
+}
+
+//Returns all recipes that the userInput ingredients match
+CookBook.prototype.matches = function(ingredients) {
+  let matchedRecipes = [];
+  for (let i=0; i<this.recipes.length; i++){
+    let recipe = this.recipes[i];
+    let recipeIngredients = this.recipes[i].ingredients;
+    //Return all recipes that match ingredients
+    ingredients.forEach(function(ingredient){
+      if (recipeIngredients.includes(ingredient)){
+        matchedRecipes.push(recipe);
+      }
+    });
+  }
+  return matchedRecipes;
+};
+
+let masterCookBook = new CookBook();
 
 const chickenPotPie = new Recipe (
   "Chicken Pot Pie",
@@ -80,6 +102,7 @@ const sobaNoodleChicken = new Recipe (
   "http://www.cookforyourlife.org/recipes/soba-noodle-chicken-stir-fry/",
   ["pasta", "chicken", "carrot", "onion", "pepper", "cabbage"],
   ["DF"]
+);
 
 const beefAndNoodles = new Recipe (
   "Beef and Noodles",
@@ -109,7 +132,7 @@ const tikkaMasala = new Recipe (
   "Chicken Tikka Masala",
   "..img/tikka-masala.jpg",
   "http://www.savorytooth.com/instant-pot-chicken-tikka-masala/",
-  ["chicken", "rice" "garlic"],
+  ["chicken", "rice", "garlic"],
   ["GF"]
 );
 
@@ -117,7 +140,7 @@ const mapoTofu = new Recipe (
   "Mapo Tofu",
   "..img/Mapo-tofu.jpg",
   "https://redhousespice.com/mapo-tofu-authentic-way/",
-  ["beef", "tofu", "rice" "onion"],
+  ["beef", "tofu", "rice", "onion"],
   ["DF"]
 );
 
@@ -125,7 +148,7 @@ const sheetChicken = new Recipe (
   "Lemony Herb Sheet Pan Chicken & Vegetables",
   "..img/sheet-pan.jpg",
   "http://delightfulmomfood.com/sheet-pan-chicken-vegetables/",
-  ["chicken", "carrot", "broccoli" "potato", "cauliflower", "garlic"],
+  ["chicken", "carrot", "broccoli", "potato", "cauliflower", "garlic"],
   ["DF", "GF"]
 );
 
@@ -152,3 +175,10 @@ const loadedPotato = new Recipe (
   ["potato", "onion", "cabbage", "kale"],
   ["VEG", "GF"]
 );
+
+//Array of all recipes
+let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato];
+
+allRecipes.forEach(function(recipe) {
+  masterCookBook.addRecipe(recipe);
+});
