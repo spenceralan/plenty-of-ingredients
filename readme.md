@@ -30,6 +30,14 @@ Installation is quick and easy! Either open this link https://spenceralan.github
 
 | behavior |  input   |  output  |
 |----------|:--------:|:--------:|
+| Create object for each recipe | Chicken Pot Pie, Image, Link, [Ingredients], Dietary Restrictions | chicken_pot_pie {title: "Chicken Pot Pie", image: image, link: "http...", ingredients: [chicken, carrots, peas,...], dietaryRestriction: "None"}; |
+| Create object for user to store ingredients | new User clicks chicken, carrots, and peas | user {ingredients: [chicken, carrots, peas]}  |
+| Build recipes object | Constructor takes an array of ingredients | matches method returns recipes that match the ingredients from the input array |
+| Create new recipes object that takes the ingredients from the user object and returns matching recipes | [chicken, carrots, peas,...] | recipes: [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan]} |
+| User clicks on a single checkbox ingredient | chicken | user {ingredients: [chicken]} |
+| Pass user ingredients to matches recipe method | recipes.matches([chicken]) | [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan] |
+| Display in right column matching recipes with link, image, and matching ingredients | [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan] | Chicken Pot Pie... Chicken Cordon Bleu... Chicken Parmesan... |
+| User clicks on second checkbox ingredient | recipes.matches([chicken, peas]) | Chicken Pot Pie... Creamy Chicken and Peas... |
 
 
 ## Authors
