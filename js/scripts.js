@@ -1,3 +1,5 @@
+// *************Business Logic **********
+
 function Recipe (title, image, link, ingredients, restrictions) {
   this.title = title;
   this.image = image;
@@ -94,3 +96,10 @@ const loadedPotato = new Recipe (
   ["potato", "onion", "cabbage", "kale"],
   ["VEG", "GF"]
 );
+
+
+// *************User Logic **********
+
+$(function(){
+
+});//ends doc ready
