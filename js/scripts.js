@@ -8,9 +8,9 @@ function Recipe (title, image, link, ingredients, restrictions) {
   this.dietaryRestrictions = restrictions; // GF, DF, VEG
 }
 
-function User(ingredients, dietaryRestrictions){
-  this.ingredients = ingredients;
-  this.dietaryRestrictions = dietaryRestrictions;
+function User(){
+  this.ingredients = [];
+  this.dietaryRestrictions = [];
 }
 
 Recipe.prototype.matches = function () {
@@ -87,6 +87,7 @@ const sobaNoodleChicken = new Recipe (
   "http://www.cookforyourlife.org/recipes/soba-noodle-chicken-stir-fry/",
   ["pasta", "chicken", "carrot", "onion", "pepper", "cabbage"],
   ["DF"]
+);
 
 const beefAndNoodles = new Recipe (
   "Beef and Noodles",
@@ -116,7 +117,7 @@ const tikkaMasala = new Recipe (
   "Chicken Tikka Masala",
   "..img/tikka-masala.jpg",
   "http://www.savorytooth.com/instant-pot-chicken-tikka-masala/",
-  ["chicken", "rice" "garlic"],
+  ["chicken", "rice", "garlic"],
   ["GF"]
 );
 
@@ -124,7 +125,7 @@ const mapoTofu = new Recipe (
   "Mapo Tofu",
   "..img/Mapo-tofu.jpg",
   "https://redhousespice.com/mapo-tofu-authentic-way/",
-  ["beef", "tofu", "rice" "onion"],
+  ["beef", "tofu", "rice", "onion"],
   ["DF"]
 );
 
@@ -132,7 +133,7 @@ const sheetChicken = new Recipe (
   "Lemony Herb Sheet Pan Chicken & Vegetables",
   "..img/sheet-pan.jpg",
   "http://delightfulmomfood.com/sheet-pan-chicken-vegetables/",
-  ["chicken", "carrot", "broccoli" "potato", "cauliflower", "garlic"],
+  ["chicken", "carrot", "broccoli", "potato", "cauliflower", "garlic"],
   ["DF", "GF"]
 );
 
@@ -164,5 +165,17 @@ const loadedPotato = new Recipe (
 // *************User Logic **********
 
 $(function(){
-
+  var newUser = new User();
+  $("input:checkbox[name=ingredients]").click(function() {
+    $("input:checkbox[name=ingredients]:checked").last().each(function(){
+        var userIngredients = $(this).val();
+        newUser.ingredients.push(userIngredients);
+    });
+  });
+  $("input:checkbox[name=Dietary-Restrictions]").click(function(){
+    $("input:checkbox[name=Dietary-Restrictions]:checked").last().each(function(){
+        var userRestrictions = $(this).val();
+        newUser.dietaryRestrictions.push(userRestrictions);
+    });
+  });
 });//ends doc ready
