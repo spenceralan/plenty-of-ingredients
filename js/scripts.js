@@ -14,7 +14,7 @@ CookBook.prototype.addRecipe = function(recipe) {
   this.recipes.push(recipe);
 }
 
-//Returns all recipes that the userInput ingredients match
+//Takes an array of ingrients and returns all recipes that the userInput ingredients match
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
   for (let i=0; i<this.recipes.length; i++){
