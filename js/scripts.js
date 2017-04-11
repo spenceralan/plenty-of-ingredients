@@ -22,7 +22,28 @@ CookBook.prototype.addRecipe = function(recipe) {
   this.recipes.push(recipe);
 }
 
-//Takes an array of ingredients and returns all recipes that the userInput ingredients match
+
+CookBook.prototype.restrictMatches = function (dietaryRestrictions) {
+  if (dietaryRestrictions.length === 0) {
+    return this.recipes;
+  } else {
+
+      let restrictedRecipes = dietaryRestrictions.every(function(userRestriction){
+        for (var i = 0; i < this.recipes.length; i++){
+        //userRestriction is a string
+        //recipeRestriction is an array of restrictions on the recipe
+        recipeRestrictions = this.recipes[i].dietaryRestrictions
+        // this.recipes[i].includes(restriction){
+        if (recipeRestrictions.includes(userRestriction)) {
+          return this.recipes[i];
+        };
+        // };
+      }
+    }, this);
+    return restrictedRecipes;
+  }
+};
+
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
   for (let i=0; i<this.recipes.length; i++) {
