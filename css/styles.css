@@ -108,3 +108,7 @@ a.recipeTitle {
 .footer-bottom p{
   padding-top: 30px;
 }
+
+#empty-image{
+  max-width: 90%
+}
