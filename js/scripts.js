@@ -11,6 +11,7 @@ function Recipe (title, image, link, ingredients, restrictions) {
 function User(){
   this.ingredients = [];
   this.dietaryRestrictions = [];
+  this.recipeMatches = [];
 }
 
 function CookBook () {
@@ -204,8 +205,11 @@ $(function(){
         newUser.ingredients.splice(index, 1);
       }
     }
-    let ingredientsResult = masterCookBook.matches(newUser.ingredients);
-    console.log(ingredientsResult);
+    newUser.recipeMatches.push(masterCookBook.matches(newUser.ingredients));
+    console.log(newUser.recipeMatches);
+    for(var i=0; i<=newUser.recipeMatches.length; i++) {
+      $("#recipe-results").text(newUser.recipeMatche[i].ingredients);
+    }
   });
 
   //For collecting user input dietary restrictions and push to newUser.
