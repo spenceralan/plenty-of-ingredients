@@ -233,18 +233,8 @@ $(function(){
         let matchedIngredients = newUser.recipeMatches[i][j];
         $("ul#recipe-results").append("<li> Includes: " + matchedIngredients + "</li>");
       }
-
-
-
-      // $("ul#recipe-results").append(function() {
-      //   for (var j=1; j<newUser.recipeMatches.length; j++){
-      //   return "<li>" + newUser.recipeMatches[i][0].title + "</li> contains  "
-      //   + newUser.recipeMatches[i][j] + "!"
-      //   }
-      // });
     }
   });
-
   //For collecting user input dietary restrictions and push to newUser.
   //Needs matches function to be created
   // $('input[name="Dietary-Restrictions"]').on('click', function () {
