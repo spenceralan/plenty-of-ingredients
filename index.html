@@ -19,6 +19,16 @@
       <div class="row">
         <form id="userIngredients">
           <div class="col-md-4">
+            <h2>
+              What's in your kitchen?
+            </h2>
+            <!-- Dietary Restrictions -->
+            <div class="form-group">
+              <label class="option-subheader">Dietary Restrictions</label><br>
+              <label><input type="checkbox" name="Dietary-Restrictions" value="GF"> Gluten Free</label><br>
+              <label><input type="checkbox" name="Dietary-Restrictions" value="DF"> Dairy Free</label><br>
+              <label><input type="checkbox" name="Dietary-Restrictions" value="VEG"> Vegetarian</label><br>
+            </div>
             <!-- Protein -->
             <div class="form-group">
               <label class="option-subheader">Protein</label><br>
@@ -49,7 +59,7 @@
             </div>
             <!-- Button is commented out in the event we decide against autopopulating recipes based upon each change of user input detected. -->
             <!-- <button type="submit" class="btn btn-success">Get Dinner</button> -->
-            <button type="button" class="btn btn-default">Reset</button>
+            <button type="button" class="btn btn-default" id="reset-button">Reset</button>
           </div><!--col-md-4 close-->
         </form>
         <div class="col-md-8">
@@ -70,13 +80,13 @@
     <footer>
       <div class="footer-top">
         <p>follow us</p><br>
-        <a href="https://github.com/akane0915"><br><i class="fa fa-github" aria-hidden="true"></i><br>asia</a>
-        <a href="https://github.com/saschultz"><br><i class="fa fa-github" aria-hidden="true"></i><br>sara</a>
-        <a href="https://github.com/spenceralan"><br><i class="fa fa-github" aria-hidden="true"></i><br>spencer</a>
-        <a href="https://github.com/jennifer-kinsey"><br><i class="fa fa-github" aria-hidden="true"></i><br>kinsey</a>
+        <a href="https://github.com/akane0915" target="_blank"><br><i class="fa fa-github" aria-hidden="true"></i><br>asia</a>
+        <a href="https://github.com/saschultz" target="_blank"><br><i class="fa fa-github" aria-hidden="true"></i><br>sara</a>
+        <a href="https://github.com/spenceralan" target="_blank"><br><i class="fa fa-github" aria-hidden="true"></i><br>spencer</a>
+        <a href="https://github.com/jennifer-kinsey" target="_blank"><br><i class="fa fa-github" aria-hidden="true"></i><br>kinsey</a>
       </div>
       <div class="footer-bottom">
-        <p>made with love in portland</p>
+        <p>matching hungry tummies one recipe at a time</p>
       </div>
     </footer>
   </body>
