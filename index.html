@@ -20,43 +20,60 @@
         <form id="userIngredients">
           <div class="col-md-4">
             <!-- Dietary Restrictions -->
-            <label class="option-subheader">Dietary Restrictions</label><br>
-            <label><input type="checkbox" name="Dietary-Restrictions" value="GF"> Gluten Free</label><br>
-            <label><input type="checkbox" name="Dietary-Restrictions" value="DF"> Dairy Free</label><br>
-            <label><input type="checkbox" name="Dietary-Restrictions" value="VEG"> Vegetarian</label><br>
+            <div class="form-group">
+              <label class="option-subheader">Dietary Restrictions</label><br>
+              <label><input type="checkbox" name="Dietary-Restrictions" value="GF"> Gluten Free</label><br>
+              <label><input type="checkbox" name="Dietary-Restrictions" value="DF"> Dairy Free</label><br>
+              <label><input type="checkbox" name="Dietary-Restrictions" value="VEG"> Vegetarian</label><br>
+            </div>
             <!-- Protein -->
-            <label class="option-subheader">Protein</label><br>
-            <label><input type="checkbox" name="ingredients" value="chicken"> Chicken</label><br>
-            <label><input type="checkbox" name="ingredients" value="beef"> Beef</label><br>
-            <label><input type="checkbox" name="ingredients" value="tofu"> Tofu</label><br>
+            <div class="form-group">
+              <label class="option-subheader">Protein</label><br>
+              <label><input type="checkbox" name="ingredients" value="chicken"> Chicken</label><br>
+              <label><input type="checkbox" name="ingredients" value="beef"> Beef</label><br>
+              <label><input type="checkbox" name="ingredients" value="tofu"> Tofu</label><br>
+            </div>
             <!-- Starch -->
-            <label class="option-subheader">Starch</label><br>
-            <label><input type="checkbox" name="ingredients" value="rice"> Rice</label><br>
-            <label><input type="checkbox" name="ingredients" value="potato"> Potatoes</label><br>
-            <label><input type="checkbox" name="ingredients" value="pasta"> Pasta</label><br>
+            <div class="form-group">
+              <label class="option-subheader">Starch</label><br>
+              <label><input type="checkbox" name="ingredients" value="rice"> Rice</label><br>
+              <label><input type="checkbox" name="ingredients" value="potato"> Potatoes</label><br>
+              <label><input type="checkbox" name="ingredients" value="pasta"> Pasta</label><br>
+            </div>
             <!-- Vegetables -->
-            <label class="option-subheader">Vegetables</label><br>
-            <label><input type="checkbox" name="ingredients" value="carrot"> Carrot</label><br>
-            <label><input type="checkbox" name="ingredients" value="broccoli"> Broccoli</label><br>
-            <label><input type="checkbox" name="ingredients" value="asparagus"> Asparagus</label><br>
+            <div class="form-group">
+              <label class="option-subheader">Vegetables</label><br>
+              <label><input type="checkbox" name="ingredients" value="carrot"> Carrot</label><br>
+              <label><input type="checkbox" name="ingredients" value="broccoli"> Broccoli</label><br>
+              <label><input type="checkbox" name="ingredients" value="asparagus"> Asparagus</label><br>
+            </div>
             <!-- Button is commented out in the event we decide against autopopulating recipes based upon each change of user input detected. -->
             <!-- <button type="submit" class="btn btn-success">Get Dinner</button> -->
-            <button type="button" class="btn btn-success">Reset</button>
+            <button type="button" class="btn btn-default">Reset</button>
           </div><!--col-md-4 close-->
         </form>
         <div class="col-md-8">
-          <h3>You have <span id="number-of-results"></span> results:</h3>
-          <div>
-            <ul id="recipe-results">
-
-            </ul>
+          <div class="feature-recipe">
+            <img src="img/tofu-wild-rice-soup.jpg" alt="rustic tofu wild rice soup" />
           </div>
+          <div class="results-column">
+            <h3><span id="number-of-results"></span> RESULTS</h3>
+            <div>
+              <ul id="recipe-results">
+
+              </ul>
+            </div>
+          </div><!--results-column close-->
         </div><!--col-md-8 close-->
       </div><!--row close-->
     </div> <!--container close-->
     <footer>
       <div class="footer-top">
-        <p>follow us<a href="https://github.com/akane0915"><br><i class="fa fa-github" aria-hidden="true"></i></a></p>
+        <p>follow us</p><br>
+        <a href="https://github.com/akane0915"><br><i class="fa fa-github" aria-hidden="true"></i><br>asia</a>
+        <a href="https://github.com/saschultz"><br><i class="fa fa-github" aria-hidden="true"></i><br>sara</a>
+        <a href="https://github.com/spenceralan"><br><i class="fa fa-github" aria-hidden="true"></i><br>spencer</a>
+        <a href="https://github.com/jennifer-kinsey"><br><i class="fa fa-github" aria-hidden="true"></i><br>kinsey</a>
       </div>
       <div class="footer-bottom">
         <p>made with love in portland</p>
