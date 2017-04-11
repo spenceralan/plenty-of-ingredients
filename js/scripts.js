@@ -35,7 +35,7 @@ CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
   acceptableRecipes = [];
   this.recipes.forEach(function(recipe) {
     if (this.isAcceptableRecipe(recipe, userDietaryRestrictions)) {
-      restrictedRecipes.push(recipe);
+      acceptableRecipes.push(recipe);
     }
   }, this);
   return acceptableRecipes;
