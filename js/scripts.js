@@ -48,7 +48,9 @@ CookBook.prototype.whatIngredients = function(ingredients) {
       }
     });
   };
-  return matchedRecipes;
+  return matchedRecipes.sort(function(a, b){
+    return b.length - a.length;
+  });
 };
 
 let masterCookBook = new CookBook();
