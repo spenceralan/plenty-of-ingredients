@@ -28,7 +28,7 @@ CookBook.prototype.isAcceptableRecipe = function(recipe, userDietaryRestrictions
   });
 }
 
-CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
+CookBook.prototype.getRecipesByRestriction = function (userDietaryRestrictions) {
   if (userDietaryRestrictions.length === 0) {
     return this.recipes;
   }
@@ -41,12 +41,11 @@ CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
   return acceptableRecipes;
 };
 
-
-CookBook.prototype.matches = function(ingredients) {
+CookBook.prototype.matches = function(ingredients, recipes) {
   let matchedRecipes = [];
-  for (let i=0; i<this.recipes.length; i++) {
-    let recipe = this.recipes[i];
-    let recipeIngredients = this.recipes[i].ingredients;
+  for (let i = 0; i < recipes.length; i++) {
+    let recipe = recipes[i];
+    let recipeIngredients = recipes[i].ingredients;
     //Return all recipes that match ingredients
     ingredients.forEach(function(ingredient){
       if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
@@ -59,8 +58,8 @@ CookBook.prototype.matches = function(ingredients) {
   });
 };
 
-CookBook.prototype.whatIngredients = function(ingredients) {
-  let matchedRecipes = this.matches(ingredients);
+CookBook.prototype.getRecipesByIngredient = function(ingredients, recipes) {
+  let matchedRecipes = this.matches(ingredients, recipes);
   for(var i = 0; i < matchedRecipes.length; i++){
     ingredients.forEach(function(ingredient){
       if (matchedRecipes[i][0].ingredients.includes(ingredient)) {
@@ -71,6 +70,10 @@ CookBook.prototype.whatIngredients = function(ingredients) {
   return matchedRecipes.sort(function(a, b){
     return b.length - a.length;
   });
+};
+
+CookBook.prototype.getAllAcceptableRecipes = function (ingredients, userDietaryRestrictions) {
+  return this.getRecipesByIngredient(ingredients, this.getRecipesByRestriction(userDietaryRestrictions));
 };
 
 let masterCookBook = new CookBook();
