@@ -222,8 +222,32 @@ const loadedPotato = new Recipe (
   ["VEG", "GF"]
 );
 
+const fishTacos = new Recipe (
+  "Fish Tacos with Mango Salsa and Avocado Crema",
+  "img/fishTacos.jpg",
+  "http://www.annies-eats.com/2015/04/24/fish-tacos-with-mango-salsa-and-avocado-cream-sauce/",
+  ["pepper", "onion", "fish", "avocado", "garlic"],
+  ["GF"]
+);
+
+const roastedSalmon = new Recipe (
+  "Salmon Roasted in Butter",
+  "img/roastedSalmon.jpg",
+  "https://cooking.nytimes.com/recipes/5703-salmon-roasted-in-butter",
+  ["fish"],
+  ["GF","DF"]
+);
+
+const tofuSaladRolls = new Recipe (
+  "Vietnamese Spring Rolls with Crispy Tofu",
+  "img/tofuSaladRolls.jpg",
+  "http://minimalistbaker.com/vietnamese-spring-rolls-with-crispy-tofu/",
+  ["tofu","carrot","pepper","cucumber","pasta","garlic"],
+  ["GF","DF","VEG"]
+);
+
 //Array of all recipes
-let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato];
+let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls];
 
 allRecipes.forEach(function(recipe) {
   masterCookBook.addRecipe(recipe);
