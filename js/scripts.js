@@ -8,7 +8,7 @@ function Recipe (title, image, link, ingredients, restrictions) {
   this.dietaryRestrictions = restrictions; // GF, DF, VEG
 }
 
-function User(){
+function User() {
   this.ingredients = [];
   this.dietaryRestrictions = [];
   this.recipeMatches = [];
@@ -25,16 +25,30 @@ CookBook.prototype.addRecipe = function(recipe) {
 //Takes an array of ingredients and returns all recipes that the userInput ingredients match
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
-  for (let i=0; i<this.recipes.length; i++){
+  for (let i=0; i<this.recipes.length; i++) {
     let recipe = this.recipes[i];
     let recipeIngredients = this.recipes[i].ingredients;
     //Return all recipes that match ingredients
     ingredients.forEach(function(ingredient){
-      if (recipeIngredients.includes(ingredient)){
+      if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
         matchedRecipes.push(recipe);
       }
     });
   }
+  return matchedRecipes.map(function(matchedRecipe){
+    return [matchedRecipe];
+  });
+};
+
+CookBook.prototype.whatIngredients = function(ingredients) {
+  let matchedRecipes = this.matches(ingredients);
+  for(var i = 0; i < matchedRecipes.length; i++){
+    ingredients.forEach(function(ingredient){
+      if (matchedRecipes[i][0].ingredients.includes(ingredient)) {
+        matchedRecipes[i].push(ingredient);
+      }
+    });
+  };
   return matchedRecipes;
 };
 
