@@ -272,4 +272,8 @@ $(function(){
     }
   });
 
+  $("#reset-button").click(function() {
+    location.reload();
+  });
+
 });//ends doc ready
