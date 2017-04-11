@@ -21,7 +21,7 @@ CookBook.prototype.addRecipe = function(recipe) {
   this.recipes.push(recipe);
 }
 
-//Takes an array of ingrients and returns all recipes that the userInput ingredients match
+//Takes an array of ingredients and returns all recipes that the userInput ingredients match
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
   for (let i=0; i<this.recipes.length; i++){
@@ -195,6 +195,7 @@ allRecipes.forEach(function(recipe) {
 $(function(){
   var newUser = new User();
 
+  //Collect user input ingredients and push to newUser
   $('input[name="ingredients"]').on('click', function () {
     if ($(this).is(':checked')) {
       newUser.ingredients.push($(this).val());
@@ -203,17 +204,20 @@ $(function(){
         newUser.ingredients.splice(index, 1);
       }
     }
+    let ingredientsResult = masterCookBook.matches(newUser.ingredients);
+    console.log(ingredientsResult);
   });
 
-  $('input[name="Dietary-Restrictions"]').on('click', function () {
-    if ($(this).is(':checked')) {
-      newUser.dietaryRestrictions.push($(this).val());
-    } else {
-      if ((index =  newUser.dietaryRestrictions.indexOf($(this).val())) !== -1) {
-        newUser.dietaryRestrictions.splice(index, 1);
-      }
-    }
-  });
-
+  //For collecting user input dietary restrictions and push to newUser.
+  //Needs matches function to be created
+  // $('input[name="Dietary-Restrictions"]').on('click', function () {
+  //   if ($(this).is(':checked')) {
+  //     newUser.dietaryRestrictions.push($(this).val());
+  //   } else {
+  //     if ((index =  newUser.dietaryRestrictions.indexOf($(this).val())) !== -1) {
+  //       newUser.dietaryRestrictions.splice(index, 1);
+  //     }
+  //   }
+  // });
 
 });//ends doc ready
