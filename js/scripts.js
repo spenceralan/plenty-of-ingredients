@@ -22,27 +22,25 @@ CookBook.prototype.addRecipe = function(recipe) {
   this.recipes.push(recipe);
 }
 
+CookBook.prototype.isAcceptableRecipe = function(recipe, userDietaryRestrictions) {
+  return userDietaryRestrictions.every(function(userRestriction) {
+    return recipe.dietaryRestrictions.includes(userRestriction);
+  });
+}
 
-CookBook.prototype.restrictMatches = function (dietaryRestrictions) {
-  if (dietaryRestrictions.length === 0) {
+CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
+  if (userDietaryRestrictions.length === 0) {
     return this.recipes;
-  } else {
-
-      let restrictedRecipes = dietaryRestrictions.every(function(userRestriction){
-        for (var i = 0; i < this.recipes.length; i++){
-        //userRestriction is a string
-        //recipeRestriction is an array of restrictions on the recipe
-        recipeRestrictions = this.recipes[i].dietaryRestrictions
-        // this.recipes[i].includes(restriction){
-        if (recipeRestrictions.includes(userRestriction)) {
-          return this.recipes[i];
-        };
-        // };
-      }
-    }, this);
-    return restrictedRecipes;
   }
+  acceptableRecipes = [];
+  this.recipes.forEach(function(recipe) {
+    if (this.isAcceptableRecipe(recipe, userDietaryRestrictions)) {
+      acceptableRecipes.push(recipe);
+    }
+  }, this);
+  return acceptableRecipes;
 };
+
 
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
@@ -257,16 +255,16 @@ $(function(){
       }
       $("ul#recipe-results").append("<hr>");
 
-
       // $("ul#recipe-results").append(function() {
       //   for (var j=1; j<newUser.recipeMatches.length; j++){
       //   return "<li>" + newUser.recipeMatches[i][0].title + "</li> contains  "
       //   + newUser.recipeMatches[i][j] + "!"
       //   }
       // });
+
+
     }
   });
-
   //For collecting user input dietary restrictions and push to newUser.
   //Needs matches function to be created
   // $('input[name="Dietary-Restrictions"]').on('click', function () {
