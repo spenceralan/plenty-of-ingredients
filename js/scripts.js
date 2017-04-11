@@ -22,26 +22,23 @@ CookBook.prototype.addRecipe = function(recipe) {
   this.recipes.push(recipe);
 }
 
+CookBook.prototype.isAcceptableRecipe = function(recipe, userDietaryRestrictions) {
+  return userDietaryRestrictions.every(function(userRestriction) {
+    return recipe.dietaryRestrictions.includes(userRestriction);
+  });
+}
 
-CookBook.prototype.restrictMatches = function (dietaryRestrictions) {
-  if (dietaryRestrictions.length === 0) {
+CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
+  if (userDietaryRestrictions.length === 0) {
     return this.recipes;
-  } else {
-
-      let restrictedRecipes = dietaryRestrictions.every(function(userRestriction){
-        for (var i = 0; i < this.recipes.length; i++){
-        //userRestriction is a string
-        //recipeRestriction is an array of restrictions on the recipe
-        recipeRestrictions = this.recipes[i].dietaryRestrictions
-        // this.recipes[i].includes(restriction){
-        if (recipeRestrictions.includes(userRestriction)) {
-          return this.recipes[i];
-        };
-        // };
-      }
-    }, this);
-    return restrictedRecipes;
   }
+  acceptableRecipes = [];
+  this.recipes.forEach(function(recipe) {
+    if (this.isAcceptableRecipe(recipe, userDietaryRestrictions)) {
+      restrictedRecipes.push(recipe);
+    }
+  }, this);
+  return acceptableRecipes;
 };
 
 CookBook.prototype.matches = function(ingredients) {
@@ -243,17 +240,17 @@ $(function(){
       }
     }
     newUser.recipeMatches = (masterCookBook.whatIngredients(newUser.ingredients));
-    console.log(newUser.recipeMatches);
     $("#recipe-results").empty();
     for(var i=0; i<newUser.recipeMatches.length; i++) {
       let recipeTitle = newUser.recipeMatches[i][0].title;
       let recipeLink = newUser.recipeMatches[i][0].link;
       let recipeImage = newUser.recipeMatches[i][0].image;
-      $("ul#recipe-results").append(`<a href="${recipeLink} target="_blank">${recipeTitle}</a> \n <img src=${recipeImage}>`);
+      $("ul#recipe-results").append(`<a href="${recipeLink}" target="_blank">${recipeTitle}</a> \n <img src=${recipeImage}>`);
       for (var j=1; j<newUser.recipeMatches[i].length; j++){
         let matchedIngredients = newUser.recipeMatches[i][j];
         $("ul#recipe-results").append("<li> Includes: " + matchedIngredients + "</li>");
       }
+
 
 
 
