@@ -219,10 +219,11 @@ $(function(){
         newUser.ingredients.splice(index, 1);
       }
     }
-    newUser.recipeMatches.push(masterCookBook.matches(newUser.ingredients));
-    console.log(newUser.recipeMatches);
-    for(var i=0; i<=newUser.recipeMatches.length; i++) {
-      $("#recipe-results").text(newUser.recipeMatche[i].ingredients);
+    newUser.recipeMatches = (masterCookBook.whatIngredients(newUser.ingredients));
+    $("#recipe-results").empty();
+    for(var i=0; i<newUser.recipeMatches.length; i++) {
+      console.log(newUser.recipeMatches[i][0].title);
+      $("#recipe-results").append(newUser.recipeMatches[i][0].title);
     }
   });
 
