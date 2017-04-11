@@ -28,7 +28,7 @@ CookBook.prototype.isAcceptableRecipe = function(recipe, userDietaryRestrictions
   });
 }
 
-CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
+CookBook.prototype.getRecipesByRestriction = function (userDietaryRestrictions) {
   if (userDietaryRestrictions.length === 0) {
     return this.recipes;
   }
@@ -41,12 +41,11 @@ CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
   return acceptableRecipes;
 };
 
-
-CookBook.prototype.matches = function(ingredients) {
+CookBook.prototype.matches = function(ingredients, recipes) {
   let matchedRecipes = [];
-  for (let i=0; i<this.recipes.length; i++) {
-    let recipe = this.recipes[i];
-    let recipeIngredients = this.recipes[i].ingredients;
+  for (let i = 0; i < recipes.length; i++) {
+    let recipe = recipes[i];
+    let recipeIngredients = recipes[i].ingredients;
     //Return all recipes that match ingredients
     ingredients.forEach(function(ingredient){
       if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
@@ -59,8 +58,8 @@ CookBook.prototype.matches = function(ingredients) {
   });
 };
 
-CookBook.prototype.whatIngredients = function(ingredients) {
-  let matchedRecipes = this.matches(ingredients);
+CookBook.prototype.getRecipesByIngredient = function(ingredients, recipes) {
+  let matchedRecipes = this.matches(ingredients, recipes);
   for(var i = 0; i < matchedRecipes.length; i++){
     ingredients.forEach(function(ingredient){
       if (matchedRecipes[i][0].ingredients.includes(ingredient)) {
@@ -71,6 +70,10 @@ CookBook.prototype.whatIngredients = function(ingredients) {
   return matchedRecipes.sort(function(a, b){
     return b.length - a.length;
   });
+};
+
+CookBook.prototype.getAllAcceptableRecipes = function (ingredients, userDietaryRestrictions) {
+  return this.getRecipesByIngredient(ingredients, this.getRecipesByRestriction(userDietaryRestrictions));
 };
 
 let masterCookBook = new CookBook();
@@ -242,7 +245,7 @@ $(function(){
         newUser.ingredients.splice(index, 1);
       }
     }
-    newUser.recipeMatches = (masterCookBook.whatIngredients(newUser.ingredients));
+    newUser.recipeMatches = (masterCookBook.getAllAcceptableRecipes(newUser.ingredients, newUser.dietaryRestrictions));
     $("#recipe-results").empty();
     for(var i=0; i<newUser.recipeMatches.length; i++) {
       let recipeTitle = newUser.recipeMatches[i][0].title;
@@ -254,27 +257,19 @@ $(function(){
         $("ul#recipe-results").append("<li> Includes: " + matchedIngredients + "</li>");
       }
       $("ul#recipe-results").append("<hr>");
-
-      // $("ul#recipe-results").append(function() {
-      //   for (var j=1; j<newUser.recipeMatches.length; j++){
-      //   return "<li>" + newUser.recipeMatches[i][0].title + "</li> contains  "
-      //   + newUser.recipeMatches[i][j] + "!"
-      //   }
-      // });
-
-
     }
   });
+
   //For collecting user input dietary restrictions and push to newUser.
   //Needs matches function to be created
-  // $('input[name="Dietary-Restrictions"]').on('click', function () {
-  //   if ($(this).is(':checked')) {
-  //     newUser.dietaryRestrictions.push($(this).val());
-  //   } else {
-  //     if ((index =  newUser.dietaryRestrictions.indexOf($(this).val())) !== -1) {
-  //       newUser.dietaryRestrictions.splice(index, 1);
-  //     }
-  //   }
-  // });
+  $('input[name="Dietary-Restrictions"]').on('click', function () {
+    if ($(this).is(':checked')) {
+      newUser.dietaryRestrictions.push($(this).val());
+    } else {
+      if ((index = newUser.dietaryRestrictions.indexOf($(this).val())) !== -1) {
+        newUser.dietaryRestrictions.splice(index, 1);
+      }
+    }
+  });
 
 });//ends doc ready
