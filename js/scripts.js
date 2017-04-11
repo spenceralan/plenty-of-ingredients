@@ -248,6 +248,9 @@ $(function(){
       }
       $("ul#recipe-results").append("<hr>");
     }
+    if(newUser.recipeMatches.length ===0){
+      $("#recipe-results").append(`<h3>Aww. Shucks. You didn't match any results.</h3> <img id="empty-image" src="img/empty.jpg">`);
+    }
   }
 
   //Collect user input ingredients and push to newUser
@@ -267,6 +270,8 @@ $(function(){
   //For collecting user input dietary restrictions and push to newUser.
   //Needs matches function to be created
   $('input[name="Dietary-Restrictions"]').on('click', function () {
+    $(".results-column").show();
+    $(".feature-recipe").hide();
     if ($(this).is(':checked')) {
       newUser.dietaryRestrictions.push($(this).val());
     } else {
@@ -275,10 +280,6 @@ $(function(){
       }
     }
     getIt();
-  });
-
-  $("#reset-button").click(function() {
-    location.reload();
   });
 
 });//ends doc ready
