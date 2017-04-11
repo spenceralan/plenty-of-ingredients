@@ -41,6 +41,7 @@ CookBook.prototype.restrictMatches = function (userDietaryRestrictions) {
   return acceptableRecipes;
 };
 
+
 CookBook.prototype.matches = function(ingredients) {
   let matchedRecipes = [];
   for (let i=0; i<this.recipes.length; i++) {
@@ -252,17 +253,16 @@ $(function(){
       }
 
 
-
-
       // $("ul#recipe-results").append(function() {
       //   for (var j=1; j<newUser.recipeMatches.length; j++){
       //   return "<li>" + newUser.recipeMatches[i][0].title + "</li> contains  "
       //   + newUser.recipeMatches[i][j] + "!"
       //   }
       // });
+
+
     }
   });
-
   //For collecting user input dietary restrictions and push to newUser.
   //Needs matches function to be created
   // $('input[name="Dietary-Restrictions"]').on('click', function () {
