@@ -19,6 +19,11 @@
       <div class="row">
         <form id="userIngredients">
           <div class="col-md-4">
+            <!-- Dietary Restrictions -->
+            <label class="option-subheader">Dietary Restrictions</label><br>
+            <label><input type="checkbox" name="Dietary-Restrictions" value="GF"> Gluten Free</label><br>
+            <label><input type="checkbox" name="Dietary-Restrictions" value="DF"> Dairy Free</label><br>
+            <label><input type="checkbox" name="Dietary-Restrictions" value="VEG"> Vegetarian</label><br>
             <!-- Protein -->
             <label class="option-subheader">Protein</label><br>
             <label><input type="checkbox" name="ingredients" value="chicken"> Chicken</label><br>
@@ -34,17 +39,12 @@
             <label><input type="checkbox" name="ingredients" value="carrot"> Carrot</label><br>
             <label><input type="checkbox" name="ingredients" value="broccoli"> Broccoli</label><br>
             <label><input type="checkbox" name="ingredients" value="asparagus"> Asparagus</label><br>
-            <!-- Dietary Restrictions -->
-            <label class="option-subheader">Dietary Restrictions</label><br>
-            <label><input type="checkbox" name="Dietary-Restrictions" value="GF"> Gluten Free</label><br>
-            <label><input type="checkbox" name="Dietary-Restrictions" value="DF"> Dairy Free</label><br>
-            <label><input type="checkbox" name="Dietary-Restrictions" value="VEG"> Vegetarian</label><br>
             <!-- Button is commented out in the event we decide against autopopulating recipes based upon each change of user input detected. -->
             <!-- <button type="submit" class="btn btn-success">Get Dinner</button> -->
-            <button type="button" class="btn btn-success">Reset</button>
+            <button type="button" class="btn btn-default">Reset</button>
           </div><!--col-md-4 close-->
         </form>
-        <div class="col-md-8">
+        <div class="results-column col-md-8">
           <h3>You have <span id="number-of-results"></span> results:</h3>
           <div>
             <ul id="recipe-results">

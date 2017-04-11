@@ -243,18 +243,17 @@ $(function(){
       }
     }
     newUser.recipeMatches = (masterCookBook.whatIngredients(newUser.ingredients));
-    console.log(newUser.recipeMatches);
     $("#recipe-results").empty();
     for(var i=0; i<newUser.recipeMatches.length; i++) {
       let recipeTitle = newUser.recipeMatches[i][0].title;
       let recipeLink = newUser.recipeMatches[i][0].link;
       let recipeImage = newUser.recipeMatches[i][0].image;
-      $("ul#recipe-results").append(`<a href="${recipeLink} target="_blank">${recipeTitle}</a> \n <img src=${recipeImage}>`);
+      $("ul#recipe-results").append(`<a href="${recipeLink}" target="_blank">${recipeTitle}</a> <br> <img class="recipeImage" src=${recipeImage}>`);
       for (var j=1; j<newUser.recipeMatches[i].length; j++){
         let matchedIngredients = newUser.recipeMatches[i][j];
         $("ul#recipe-results").append("<li> Includes: " + matchedIngredients + "</li>");
       }
-
+      $("ul#recipe-results").append("<hr>");
 
 
       // $("ul#recipe-results").append(function() {

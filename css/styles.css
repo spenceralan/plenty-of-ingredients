@@ -5,6 +5,10 @@ body{
   line-height: 30px;
 }
 
+.recipeImage{
+  max-width: 400px;
+}
+
 .jumbotron h1{
   font-family: 'Indie Flower', cursive;
   text-transform: uppercase;
@@ -23,16 +27,23 @@ body{
   background-size: cover;
   background-position: center;
   }
+
 .option-subheader{
   margin-top: 10px;
   font-size: 1.5em;
   text-transform: uppercase;
 }
+
 .col-md-4 {
   border-right: solid 1px black;
 }
-label{
-  font-weight: normal;
+
+.results-column{
+  text-align: center;
+}
+
+li {
+  list-style: none;
 }
 
 .footer-top{
