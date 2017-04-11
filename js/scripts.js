@@ -234,17 +234,7 @@ allRecipes.forEach(function(recipe) {
 $(function(){
   var newUser = new User();
 
-  //Collect user input ingredients and push to newUser
-  $('input[name="ingredients"]').on('click', function () {
-    $(".results-column").show();
-    $(".feature-recipe").hide();
-    if ($(this).is(':checked')) {
-      newUser.ingredients.push($(this).val());
-    } else {
-      if ((index =  newUser.ingredients.indexOf($(this).val())) !== -1) {
-        newUser.ingredients.splice(index, 1);
-      }
-    }
+  var getIt = function(){
     newUser.recipeMatches = (masterCookBook.getAllAcceptableRecipes(newUser.ingredients, newUser.dietaryRestrictions));
     $("#recipe-results").empty();
     for(var i=0; i<newUser.recipeMatches.length; i++) {
@@ -258,6 +248,20 @@ $(function(){
       }
       $("ul#recipe-results").append("<hr>");
     }
+  }
+
+  //Collect user input ingredients and push to newUser
+  $('input[name="ingredients"]').on('click', function () {
+    $(".results-column").show();
+    $(".feature-recipe").hide();
+    if ($(this).is(':checked')) {
+      newUser.ingredients.push($(this).val());
+    } else {
+      if ((index =  newUser.ingredients.indexOf($(this).val())) !== -1) {
+        newUser.ingredients.splice(index, 1);
+      }
+    }
+    getIt();
   });
 
   //For collecting user input dietary restrictions and push to newUser.
@@ -270,6 +274,7 @@ $(function(){
         newUser.dietaryRestrictions.splice(index, 1);
       }
     }
+    getIt();
   });
 
   $("#reset-button").click(function() {
