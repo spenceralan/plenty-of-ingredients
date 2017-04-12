@@ -9,8 +9,8 @@ body{
 }
 
 .jumbotron h1{
-  font-family: 'Indie Flower', cursive;
-  text-transform: uppercase;
+  font-family: 'Give You Glory', cursive;
+  letter-spacing: 15px;
   font-size: 6em;
 }
 
@@ -74,7 +74,6 @@ li {
   display: inline-block;
 }
 
-
 a.recipeTitle {
   color: #6a7b96;
   font-size: 1.5em;
@@ -90,9 +89,15 @@ a.recipeTitle {
   margin: 30px;
 }
 
+
 .dietIcons {
   max-width: 60px;
   margin-bottom: .5em;
+
+ul img{
+  width: 100%;
+  margin: 80px 0;
+
 }
 
 .footer-top{
