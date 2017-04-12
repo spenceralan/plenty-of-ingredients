@@ -37,7 +37,7 @@ class CookBook {
     if (userDietaryRestrictions.length === 0) {
       return this.recipes;
     }
-    acceptableRecipes = [];
+    let acceptableRecipes = [];
     this.recipes.forEach(function(recipe) {
       if (this.isAcceptableRecipe(recipe, userDietaryRestrictions)) {
         acceptableRecipes.push(recipe);
@@ -81,7 +81,6 @@ class CookBook {
     return this.getRecipesByIngredient(ingredients, this.getRecipesByRestriction(userDietaryRestrictions));
   }
 } //Close cookbook class
-
 
 // *************User Logic **********
 
