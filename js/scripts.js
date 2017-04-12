@@ -62,7 +62,7 @@ class CookBook {
       return [matchedRecipe];
     });
   }
-  
+
   getRecipesByIngredient(ingredients, recipes) {
     let matchedRecipes = this.matches(ingredients, recipes);
     for(var i = 0; i < matchedRecipes.length; i++){
@@ -254,8 +254,32 @@ const tofuSaladRolls = new Recipe (
   ["GF","DF","VEG"]
 );
 
+const sofritasTacos = new Recipe (
+  "Chipotle Sofritas Tacos",
+  "img/Sofritas-Tacos.jpg",
+  "https://www.gimmesomeoven.com/chipotle-sofritas-tacos/",
+  ["tofu","onion","pepper","avocado", "corn", "beans", "tomato"],
+  ["GF","DF","VEG"]
+);
+
+const mushroomRisotto = new Recipe (
+  "Mushroom Risotto With Peas",
+  "img/MushroomRisotto.jpg",
+  "https://cooking.nytimes.com/recipes/1017022-mushroom-risotto-with-peas",
+  ["onion", "mushroom", "rice", "peas"],
+  ["GF", "VEG"]
+);
+
+const thaiTacos = new Recipe (
+  "Thai Red Curry Vegetable Tacos",
+  "img/thaiTaco.jpg",
+  "http://www.kristinkitchen.com/blog/2017/3/24/thai-red-curry-vegetable-tacos",
+  ["quinoa", "pepper", "corn", "carrot", "mushroom", "kale"],
+  ["GF", "VEG"]
+);
+
 //Array of all recipes
-let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls];
+let allRecipes = [mushroomRisotto, chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls, sofritasTacos, thaiTacos];
 
 allRecipes.forEach(function(recipe) {
   masterCookBook.addRecipe(recipe);
