@@ -265,10 +265,12 @@ $(function(){
       let recipeTitle = newUser.recipeMatches[i][0].title;
       let recipeLink = newUser.recipeMatches[i][0].link;
       let recipeImage = newUser.recipeMatches[i][0].image;
-      $("ul#recipe-results").append(`<a class="recipeTitle" href="${recipeLink}" target="_blank">${recipeTitle} <br> <img class="recipeImage" src=${recipeImage}></a>`);
+      $("ul#recipe-results").append(`<a class="recipeTitle" href="${recipeLink}" target="_blank">${recipeTitle} <br> <img class="recipeImage" src=${recipeImage}></a><br>`);
+      $("ul#recipe-results").append("<li> Includes: </li>");
       for (var j=1; j<newUser.recipeMatches[i].length; j++){
         let matchedIngredients = newUser.recipeMatches[i][j];
-        $("ul#recipe-results").append("<li> Includes: " + matchedIngredients + "</li>");
+        $("ul#recipe-results").append(`<li>&nbsp;&nbsp;${matchedIngredients}&nbsp;&nbsp;</li>`);
+        console.log(newUser.recipeMatches[i][j]);
       }
       $("ul#recipe-results").append("<hr>");
     }
