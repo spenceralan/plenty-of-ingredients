@@ -82,11 +82,21 @@ a.recipeTitle {
 .recipeTitle:hover {
   font-weight: bolder;
   text-decoration: none;
-  font-size: 1.8em;
 }
 
 .recipeImage{
   margin: 30px;
+}
+
+
+.recipeImage {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+}
+.recipeImage:hover {
+	opacity: .75;
 }
 
 
