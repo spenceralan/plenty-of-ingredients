@@ -246,8 +246,49 @@ const tofuSaladRolls = new Recipe (
   ["GF","DF","VEG"]
 );
 
+const quinoaVeggieBurgers = new Recipe (
+  "Quinoa Veggie Burgers",
+  "img/quinoaVeggieBurgers.jpg",
+  "https://www.acouplecooks.com/quinoa-veggie-burgers-eating-real-food/",
+  ["quinoa","carrot","onion","garlic","avocado","lettuce"],
+  ["VEG"]
+);
+
+const greekQuinoaSalad = new Recipe (
+  "Loaded Greek Quinoa Salad",
+  "img/greekQuinoaSalad.jpg",
+  "https://www.halfbakedharvest.com/loaded-greek-quinoa-salad/",
+  ["quinoa","olives","lemon","pepper","cucumber","zucchini", "tomato", "artichoke", "lettuce", "radish", "avocado"],
+  ["VEG"]
+);
+
+const sweetPotatoBurgers = new Recipe (
+  "Sweet Potato Black Bean Burgers",
+  "img/sweetPotatoBurgers.jpg",
+  "http://minimalistbaker.com/sweet-potato-black-bean-burger/",
+  ["potato","beans","rice","onion","avocado", "lettuce"],
+  ["VEG","GF","DF"]
+);
+
+const bouillabaisse = new Recipe (
+  "Bouillabaisse",
+  "img/bouillabaisse.jpg",
+  "http://steamykitchen.com/15777-bouillabaisse-recipe.html",
+  ["leek","fish","garlic","onion","tomato", "fennel"],
+  ["GF","DF"]
+);
+
+const lentilSalad = new Recipe (
+  "The Best Lentil Salad Ever",
+  "img/lentilSalad.jpg",
+  "https://www.mynewroots.org/site/2010/06/the-best-lentil-salad-ever-2/",
+  ["lentils","onion","lettuce","onion"],
+  ["VEG","GF","DF"]
+);
+
+
 //Array of all recipes
-let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls];
+let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls, quinoaVeggieBurgers, greekQuinoaSalad, sweetPotatoBurgers, bouillabaisse, lentilSalad];
 
 allRecipes.forEach(function(recipe) {
   masterCookBook.addRecipe(recipe);
