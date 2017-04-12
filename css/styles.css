@@ -67,7 +67,6 @@ li {
   display: inline-block;
 }
 
-
 a.recipeTitle {
   color: #6a7b96;
   font-size: 1.5em;
@@ -81,6 +80,11 @@ a.recipeTitle {
 
 .recipeImage{
   margin: 30px;
+}
+
+ul img{
+  width: 100%;
+  margin: 80px 0;
 }
 
 .footer-top{
