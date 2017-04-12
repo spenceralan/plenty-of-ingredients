@@ -64,7 +64,10 @@ form label{
 
 li {
   list-style: none;
+  display: inline-block;
 }
+
+
 a.recipeTitle {
   color: #6a7b96;
   font-size: 1.5em;
@@ -74,6 +77,10 @@ a.recipeTitle {
   font-weight: bolder;
   text-decoration: none;
   font-size: 1.8em;
+}
+
+.recipeImage{
+  margin: 30px;
 }
 
 .footer-top{
