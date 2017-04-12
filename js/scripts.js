@@ -277,6 +277,7 @@ $(function(){
     if(newUser.recipeMatches.length ===0){
       $("#recipe-results").append(`<h3>Aww. Shucks. You didn't match any results.</h3> <img id="empty-image" src="img/empty.jpg">`);
     }
+    $("#number-of-results").text(newUser.recipeMatches.length);
   }
 
   //Collect user input ingredients and push to newUser
