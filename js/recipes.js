@@ -258,8 +258,32 @@ const spinachQuiche = new Recipe (
   ["VEG"]
 );
 
+const beansAndEggs = new Recipe (
+  "Simple Black Beans and Eggs",
+  "img/beansAndEggs.jpg",
+  "https://www.acouplecooks.com/simple-black-beans-and-eggs/",
+  ["beans","eggs", "tomato", "avocado"],
+  ["VEG", "GF"]
+);
+
+const padThai = new Recipe (
+  "Authentic Pad Thai",
+  "img/padThai.jpg",
+  "http://inquiringchef.com/authentic-pad-thai/",
+  ["tofu","eggs", "pasta", "fish"],
+  ["DF"]
+);
+
+const veganPadThai = new Recipe (
+  "Vegan Pad Thai",
+  "img/veganPadThai.jpg",
+  "https://divinespicebox.com/2017/04/03/vegan-peanut-sauce-pad-thai-with-spiralized-carrots/",
+  ["tofu","carrot", "pasta", "mushroom"],
+  ["DF"]
+);
+
 //Array of all recipes
-let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls, quinoaVeggieBurgers, greekQuinoaSalad, sweetPotatoBurgers, bouillabaisse, lentilSalad, chickenChili, kalePizza, kaleSalad, hazelnutSalmon, zucchiniNoodles, spinachQuiche];
+let allRecipes = [chickenPotPie, roastChickenAspargus, beefStuffedEggplant, tofuAsparagusQuiche, easyVeganFriedRice, onePotPasta, beefStew, blackBeanEnchilada, sobaNoodleChicken, beefAndNoodles, tofuWildRiceSoup, tofuAsparagus, tikkaMasala, mapoTofu, sheetChicken, beefAndBroccoli, macAndCheese, loadedPotato, fishTacos, roastedSalmon, tofuSaladRolls, quinoaVeggieBurgers, greekQuinoaSalad, sweetPotatoBurgers, bouillabaisse, lentilSalad, chickenChili, kalePizza, kaleSalad, hazelnutSalmon, zucchiniNoodles, spinachQuiche, beansAndEggs, padThai, veganPadThai];
 
 allRecipes.forEach(function(recipe) {
   masterCookBook.addRecipe(recipe);
