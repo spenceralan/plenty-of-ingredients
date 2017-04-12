@@ -265,12 +265,28 @@ $(function(){
       let recipeTitle = newUser.recipeMatches[i][0].title;
       let recipeLink = newUser.recipeMatches[i][0].link;
       let recipeImage = newUser.recipeMatches[i][0].image;
+      let recipeRestrictions = newUser.recipeMatches[i][0].dietaryRestrictions;
       $("ul#recipe-results").append(`<a class="recipeTitle" href="${recipeLink}" target="_blank">${recipeTitle} <br> <img class="recipeImage" src=${recipeImage}></a><br>`);
+
+      if (recipeRestrictions.length > 0) {
+        recipeRestrictions.forEach(function(restriction){
+          if (restriction === "GF") {
+            $("ul#recipe-results").append(`<img src="img/gluten-icon.png" class="dietIcons">`);
+          }
+          if (restriction === "DF") {
+            $("ul#recipe-results").append(`<img src="img/dairy-icon.png" class="dietIcons">`);
+          }
+          if (restriction === "VEG") {
+            $("ul#recipe-results").append(`<img src="img/veg-icon.jpg" class="dietIcons">`);
+          }
+        });
+        $("ul#recipe-results").append("<br>" );
+      }
+
       $("ul#recipe-results").append("<li> Includes: </li>");
       for (var j=1; j<newUser.recipeMatches[i].length; j++){
         let matchedIngredients = newUser.recipeMatches[i][j];
         $("ul#recipe-results").append(`<li>&nbsp;&nbsp;${matchedIngredients}&nbsp;&nbsp;</li>`);
-        console.log(newUser.recipeMatches[i][j]);
       }
       $("ul#recipe-results").append('<br><img src="img/separator.png"/><br>');
     }
