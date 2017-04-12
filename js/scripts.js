@@ -1,80 +1,88 @@
 // *************Business Logic **********
 
-function Recipe (title, image, link, ingredients, restrictions) {
-  this.title = title;
-  this.image = image;
-  this.link = link;
-  this.ingredients = ingredients;
-  this.dietaryRestrictions = restrictions; // GF, DF, VEG
-}
 
-function User() {
-  this.ingredients = [];
-  this.dietaryRestrictions = [];
-  this.recipeMatches = [];
-}
-
-function CookBook () {
-  this.recipes = [];
-}
-
-CookBook.prototype.addRecipe = function(recipe) {
-  this.recipes.push(recipe);
-}
-
-CookBook.prototype.isAcceptableRecipe = function(recipe, userDietaryRestrictions) {
-  return userDietaryRestrictions.every(function(userRestriction) {
-    return recipe.dietaryRestrictions.includes(userRestriction);
-  });
-}
-
-CookBook.prototype.getRecipesByRestriction = function (userDietaryRestrictions) {
-  if (userDietaryRestrictions.length === 0) {
-    return this.recipes;
+class Recipe {
+  constructor(title, image, link, ingredients, restrictions) {
+    this.title = title;
+    this.image = image;
+    this.link = link;
+    this.ingredients = ingredients;
+    this.dietaryRestrictions = restrictions;
   }
-  acceptableRecipes = [];
-  this.recipes.forEach(function(recipe) {
-    if (this.isAcceptableRecipe(recipe, userDietaryRestrictions)) {
-      acceptableRecipes.push(recipe);
+}
+class User {
+  constructor() {
+    this.ingredients = [];
+    this.dietaryRestrictions = [];
+    this.recipeMatches = [];
+  }
+}
+
+class CookBook {
+  constructor(){
+    this.recipes = [];
+  }
+
+  addRecipe(recipe){
+    this.recipes.push(recipe);
+  }
+
+  isAcceptableRecipe(recipe, userDietaryRestrictions){
+    return userDietaryRestrictions.every(function(userRestriction) {
+      return recipe.dietaryRestrictions.includes(userRestriction);
+    });
+  }
+
+  getRecipesByRestriction(userDietaryRestrictions){
+    if (userDietaryRestrictions.length === 0) {
+      return this.recipes;
     }
-  }, this);
-  return acceptableRecipes;
-};
-
-CookBook.prototype.matches = function(ingredients, recipes) {
-  let matchedRecipes = [];
-  for (let i = 0; i < recipes.length; i++) {
-    let recipe = recipes[i];
-    let recipeIngredients = recipes[i].ingredients;
-    //Return all recipes that match ingredients
-    ingredients.forEach(function(ingredient){
-      if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
-        matchedRecipes.push(recipe);
+    acceptableRecipes = [];
+    this.recipes.forEach(function(recipe) {
+      if (this.isAcceptableRecipe(recipe, userDietaryRestrictions)) {
+        acceptableRecipes.push(recipe);
       }
+    }, this);
+    return acceptableRecipes;
+  }
+
+  matches(ingredients, recipes) {
+    let matchedRecipes = [];
+    for (let i = 0; i < recipes.length; i++) {
+      let recipe = recipes[i];
+      let recipeIngredients = recipes[i].ingredients;
+      //Return all recipes that match ingredients
+      ingredients.forEach(function(ingredient){
+        if (recipeIngredients.includes(ingredient) && !matchedRecipes.includes(recipe)){
+          matchedRecipes.push(recipe);
+        }
+      });
+    }
+    return matchedRecipes.map(function(matchedRecipe){
+      return [matchedRecipe];
     });
   }
-  return matchedRecipes.map(function(matchedRecipe){
-    return [matchedRecipe];
-  });
-};
-
-CookBook.prototype.getRecipesByIngredient = function(ingredients, recipes) {
-  let matchedRecipes = this.matches(ingredients, recipes);
-  for(var i = 0; i < matchedRecipes.length; i++){
-    ingredients.forEach(function(ingredient){
-      if (matchedRecipes[i][0].ingredients.includes(ingredient)) {
-        matchedRecipes[i].push(ingredient);
-      }
+  
+  getRecipesByIngredient(ingredients, recipes) {
+    let matchedRecipes = this.matches(ingredients, recipes);
+    for(var i = 0; i < matchedRecipes.length; i++){
+      ingredients.forEach(function(ingredient){
+        if (matchedRecipes[i][0].ingredients.includes(ingredient)) {
+          matchedRecipes[i].push(ingredient);
+        }
+      });
+    };
+    return matchedRecipes.sort(function(a, b){
+      return b.length - a.length;
     });
-  };
-  return matchedRecipes.sort(function(a, b){
-    return b.length - a.length;
-  });
-};
+  }
 
-CookBook.prototype.getAllAcceptableRecipes = function (ingredients, userDietaryRestrictions) {
-  return this.getRecipesByIngredient(ingredients, this.getRecipesByRestriction(userDietaryRestrictions));
-};
+  getAllAcceptableRecipes(ingredients, userDietaryRestrictions) {
+    return this.getRecipesByIngredient(ingredients, this.getRecipesByRestriction(userDietaryRestrictions));
+  }
+} //Close cookbook class
+
+// recipes
 
 let masterCookBook = new CookBook();
 
