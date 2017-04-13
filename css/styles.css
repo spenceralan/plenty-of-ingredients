@@ -1,20 +1,20 @@
-body{
+body {
   font-family: 'Raleway', sans-serif;
   letter-spacing: 5px;
   line-height: 30px;
 }
 
-.recipeImage{
+.recipeImage {
   max-width: 400px;
 }
 
-.jumbotron h1{
+.jumbotron h1 {
   font-family: 'Give You Glory', cursive;
   letter-spacing: 15px;
   font-size: 6em;
 }
 
-.jumbotron p{
+.jumbotron p {
   font-family: 'Dawning of a New Day', cursive;
   font-size: 3em;
 }
@@ -24,19 +24,16 @@ body{
   position: fixed;
   width: 100%;
   height: 300px !important;
-  /*top:0;
-  left:0;*/
   z-index: 1;
   text-align: center;
-  background-blend-mode: soft-light;
   background-size: cover;
 }
 
-.container{
+.container {
   padding-top: 350px;
 }
 
-.option-subheader{
+.option-subheader {
   margin-top: 10px;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -45,35 +42,40 @@ body{
 .col-md-4 {
   border-right: solid 1px #F0F0F0;
 }
-#userIngredients h2{
+
+#userIngredients h2 {
   text-align: center;
   margin: 30px 0;
   line-height: 60px;
   font-size: 3em;
 }
 
-form label{
+form label {
   line-height: 40px;
 }
+
 .feature-recipe img {
   max-height: 855px;
 }
+
 .feature-recipe {
   text-align: center;
 }
+
 .results-column {
   display: none;
+  text-align: center;
 }
+
 .results-column h3 {
   margin-bottom: 30px;
 }
-.results-column{
-  text-align: center;
-}
-.col-sm-4 img{
+
+.col-sm-4 img {
   width: 70px;
 }
-#middle-icon{
+
+#middle-icon {
   border-right: solid 1px #F0F0F0;
   border-left: solid 1px #F0F0F0;
 }
@@ -88,15 +90,15 @@ a.recipeTitle {
   font-size: 1.5em;
   text-decoration: none;
 }
+
 .recipeTitle:hover {
   font-weight: bolder;
   text-decoration: none;
 }
 
-.recipeImage{
+.recipeImage {
   margin: 30px;
 }
-
 
 .recipeImage {
 	opacity: 1;
@@ -104,33 +106,34 @@ a.recipeTitle {
 	transition: .3s ease-in-out;
   box-shadow: 0 3px 5px rgba(0,0,0,0.25);
 }
+
 .recipeImage:hover {
 	opacity: .75;
 }
-
 
 .dietIcons {
   max-width: 60px;
   margin-bottom: .5em;
 }
 
-ul img{
+ul img {
   width: 100%;
   margin: 80px 0;
 }
 
-.footer-top{
+.footer-top {
   min-height: 200px;
   background-color: #f2f2f2;
   text-align: center;
   margin-top: 50px;
 }
-.footer-top p{
+
+.footer-top p {
   padding-top: 20px;
   margin: 0 0 -30px;
 }
 
-.footer-top a{
+.footer-top a {
   display: inline-block;
   padding: 0 30px 0 30px;
 }
@@ -141,17 +144,17 @@ ul img{
   color: black;
 }
 
-.footer-bottom{
+.footer-bottom {
   min-height: 100px;
   background-color: black;
   color: white;
   text-align: center;
 }
 
-.footer-bottom p{
+.footer-bottom p {
   padding-top: 30px;
 }
 
-#empty-image{
+#empty-image {
   max-width: 90%
 }

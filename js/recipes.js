@@ -1,5 +1,4 @@
 // Recipes
-
 let masterCookBook = new CookBook();
 
 const chickenPotPie = new Recipe (
