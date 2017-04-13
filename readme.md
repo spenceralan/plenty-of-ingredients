@@ -1,8 +1,8 @@
-# Plenty of Ingredients - Week 5 Group Project - Epicodus
+# DinnerMatch.com - Week 5 Group Project - Epicodus
 
 This web app will allow a user to select from a predetermined list of ingredients they might have on hand to return a list of recipes that include those ingredients. This app helps users think of recipes they may not know they could easily make with what is already in their fridge or pantry. This app will reduce food waste and helps the user to save money by limiting the amount of ingredients they need to purchase. This makes the world a better place.
 
-This webpage was built using HTML, CSS, Bootstrap, JavaScript, and JQuery.
+This webpage was built using HTML, CSS, Bootstrap, JavaScript, jQuery, and icons from Font Awesome.
 
 ## Getting Started
 
@@ -21,10 +21,11 @@ Installation is quick and easy! Either open this link https://spenceralan.github
 ## Built With
 
 * JavaScript
-* JQuery https://jquery.com/
+* jQuery https://jquery.com/
 * HTML
 * CSS
 * Bootstrap https://getbootstrap.com/
+* Font Awesome
 
 ## Specifications
 
@@ -38,7 +39,7 @@ Installation is quick and easy! Either open this link https://spenceralan.github
 | Pass user ingredients to matches recipe method | recipes.matches([chicken]) | [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan] |
 | Display in right column matching recipes with link, image, and matching ingredients | [chicken_pot_pie, chicken_cordon_bleu, chicken_parmesan] | Chicken Pot Pie... Chicken Cordon Bleu... Chicken Parmesan... |
 | User clicks on second checkbox ingredient | recipes.matches([chicken, peas]) | Chicken Pot Pie... Creamy Chicken and Peas... |
-
+|User clicks on dietary restriction|Ex: Vegetarian|Returns only vegetarian recipes such as Black Bean Enchiladas|
 
 ## Authors
 
@@ -49,4 +50,4 @@ Installation is quick and easy! Either open this link https://spenceralan.github
 
 ## License
 
-Copyright © 2017 Spencer A Ruiz
+Copyright © 2017 Spencer A Ruiz, Asia Kane, Jennifer Kinsey, Sara Schultz
